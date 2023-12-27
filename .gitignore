@@ -1,0 +1,80 @@
+# env file
+.env
+
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+lib-cov
+
+# Compiled binary addons
+*.node
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# npm
+npm-debug.log
+/node_modules
+/npm-debug.log*
+
+# Yarn
+yarn-error.log
+yarn-error.log.*
+.pnp.*
+.yarn-integrity
+node_modules/
+
+# Production build
+dist/
+
+# Dependency directory
+.bak/
+
+# Editor
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*.out
+
+# Tests
+/coverage
+.nyc_output
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Heroku
+node_modules/
+dist/
+.env
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
