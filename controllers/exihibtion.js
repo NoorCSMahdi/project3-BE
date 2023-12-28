@@ -1,11 +1,11 @@
 // API's/ Functions
 
-const {Exihibtion} = require("../models/Exihibtion")
-const {User} = require("../models/User")
+// const {User} = require("../models/User")
+const {Exhibition} = require("../models/Exihibtion")
 
-const dayjs = require('dayjs')
-var relativeTime = require('dayjs/plugin/relativeTime')
-dayjs.extend(relativeTime)
+// const dayjs = require('dayjs')
+// var relativeTime = require('dayjs/plugin/relativeTime')
+// dayjs.extend(relativeTime)
 
 // CRUD Operations
 // HTTP POST - Create - Post the data
@@ -15,60 +15,30 @@ dayjs.extend(relativeTime)
 
 // Create Operation
 exports.exihibtion_create_get = (req, res) => {
-  User.find()
-  .then((users) => {
-    res.render("exihibtion/add", {users});
-  })
-  .catch(err => {
-    console.log(err);
-  })
-  
+  res.render("exihibtion/add");
 }
-
-
-
 
 exports.exihibtion_create_post = (req, res) => {
   console.log(req.body);
-  let exihibtion = new Exihibtion(req.body);
+  let exihibtion = new Exhibition(req.body);
 
-  // Embedded Schema
-  // User.findById(req.body.user)
-  // .then((user) => {
-  //   user.exihibtion.push(exihibtion);
-  //   user.save();
-  //   res.redirect("/user/index");
-  // })
-  // .catch((err) =>{
-  //   console.log(err);
-  // })
-
-
-  // Save Exihibtion
+  // Save Exhibition
   exihibtion.save()
   .then(() => {
-    req.body.user.forEach(user => {
-      User.findById(user)
-      .then((user) => {
-        user.exihibtion.push(exihibtion);
-        user.save();
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    })
-    res.redirect("/exihibtion/index");
+    // res.redirect("/exihibtion/index");
+    res.json({ exihibtion })
   })
   .catch((err) => {
     console.log(err);
     res.send("Please try again later!!")
   })
 }
-
+//Restful API
 exports.exihibtion_index_get = (req, res) => {
-  Exihibtion.find().populate('user')
+  Exhibition.find()
   .then((exihibtions) => {
-    res.render("exihibtion/index", {exihibtions, dayjs});
+    // res.render("exihibtion/index", {exihibtions, dayjs});
+    res.json({ exihibtions })
   })
   .catch((err) => {
     console.log(err);
@@ -78,9 +48,9 @@ exports.exihibtion_index_get = (req, res) => {
 
 exports.exihibtion_show_get = (req, res) => {
   console.log(req.query.id);
-  Exihibtion.findById(req.query.id).populate('user')
+  Exhibition.findById(req.query.id).populate('user')
   .then((exihibtion) => {
-    res.render("exihibtion/detail", {exihibtion, dayjs})
+    res.render("exihibtion/detail", {exihibtion})
   })
   .catch((err) => {
     console.log(err);
@@ -89,9 +59,10 @@ exports.exihibtion_show_get = (req, res) => {
 
 exports.exihibtion_delete_get = (req, res) => {
   console.log(req.query.id);
-  Exihibtion.findByIdAndDelete(req.query.id)
-  .then(() => {
-    res.redirect("/exihibtion/index");
+  Exhibition.findByIdAndDelete(req.query.id)
+  .then((exihibtion) => {
+    // res.redirect("/exihibtion/index");
+    res.json({exihibtion})
   })
   .catch((err) => {
     console.log(err);
@@ -99,9 +70,10 @@ exports.exihibtion_delete_get = (req, res) => {
 }
 
 exports.exihibtion_edit_get = (req, res) => {
-  Exihibtion.findById(req.query.id)
+  Exhibition.findById(req.query.id)
   .then((exihibtion) => {
-    res.render("exihibtion/edit", {exihibtion});
+    // res.render("exihibtion/edit", {exihibtion});
+    res.json({exihibtion})
   })
   .catch(err => {
     console.log(err);
@@ -109,10 +81,11 @@ exports.exihibtion_edit_get = (req, res) => {
 }
 
 exports.exihibtion_update_put = (req, res) => {
-  console.log(req.body.id);
-  Exihibtion.findByIdAndUpdate(req.body.id, req.body)
-  .then(() => {
-    res.redirect("/exihibtion/index");
+  console.log(req.body._id);
+  Exhibition.findByIdAndUpdate(req.body._id, req.body, {new:true})
+  .then((exihibtion) => {
+    // res.redirect("/exihibtion/index");
+    res.json({exihibtion})
   })
   .catch(err => {
     console.log(err);
