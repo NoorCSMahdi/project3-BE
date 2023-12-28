@@ -18,12 +18,14 @@ const db = require("./config/db");
 //Import Routes
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
+const reviewRouter = require("./routes/review");
 
 //telling Nodejs to look into the folder called views for all the ejs files
 app.set("view engine", "ejs");
 
 //Mount Routes
 app.use("/user", userRouter);
+app.use("/review", reviewRouter);
 
 app.listen(port, () => {
     console.log(`Voiture App is running on port ${port}`);
