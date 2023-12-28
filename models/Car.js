@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 // Car Schema
 const carSchema = mongoose.Schema({
-  name: String,
-  company: String,
-  model: String,
-  price: Number,
-  description: String,
-  avatar: String,
+  car_name: String,
+  car_company: String,
+  car_model: String,
+  car_price: Number,
+  car_description: String,
+  car_avatar: String,
   Cartype: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Cartype'

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Type Schema
 const CartypeSchema = mongoose.Schema({
-  name: String,
+  type_name: String,
 })
 
 // Car Model
