@@ -1,9 +1,9 @@
 const express = require('express');
-const methodOverride = require('method-override');
+// const methodOverride = require('method-override');
 
 const router = express.Router();
 // router.use(express.urlencoded({extended: true}));
-router.use(methodOverride('_method'));
+// router.use(methodOverride('_method'));
 
 const exihibtionCntrl = require("../controllers/exihibtion")
 
