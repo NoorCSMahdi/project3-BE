@@ -1,0 +1,56 @@
+<h1> Add an Exihibtion </h1>
+
+<form method="POST" action="/exihibtion/add">
+  <div>
+    <label>Exihibtion Name</label>
+    <input type="text" name="exihibtion_name" class="form-control"/>
+  </div>
+
+  <div>
+    <label>Exihibtion Description</label>
+    <textarea name="exihibtion_description" class="form-control"></textarea>
+  </div>
+
+  <div>
+    <label>Exihibtion Image</label>
+    <input name="isPublished" class="form-control" onchange="validateSize(this)" type="file" name="exihibtion_image" id="exihibtion_image" accept=".png, .jpg, .jpeg, .gif">
+  </div>
+
+  <!-- <div>
+    <label>Exihibtion Rate</label>
+    <input name="exihibtion_rate" class="form-control"  type="file">
+  </div> -->
+  <div>
+    <label>Exhibition Location</label>
+    <input type="text" name="exhibition_location" className="form-control" id="exhibition-location-input"/>
+  </div>
+
+  <div>
+    <label>Exihibtion Phone Number</label>
+    <input type="number" name="exihibtion_phoneNumber" class="form-control"/>
+  </div>
+  <div>
+    <label>Exihibtion Email Address</label>
+    <input type="email" name="exihibtion_emailAddress" class="form-control"/>
+  </div>
+</div>
+
+<br>/>
+  </div>
+
+  <div>
+    <label>TotalWords</label>
+    <input type="number" name="totalWords" class="form-control"/>
+  </div>
+
+  <div>
+    <!-- <label>User</label>
+    <select name="user[]" class="form-control" multiple="multiple">
+      <% users.forEach(function(user){ %>
+        <option value="<%= user._id %>"><%= user.name %></option>
+      <% }) %>
+    </select> -->
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Create Exihibtion</button>
+</form>
