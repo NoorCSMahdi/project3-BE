@@ -21,6 +21,7 @@ const userRouter = require("./routes/user");
 const carRouter = require("./routes/car");
 const cartypeRouter = require("./routes/cartype");
 const authRouter = require("./routes/auth");
+const reviewRouter = require("./routes/review");
 
 //telling Nodejs to look into the folder called views for all the ejs files
 app.set("view engine", "ejs");
@@ -31,6 +32,7 @@ app.use("/user", userRouter);
 app.use("/car", carRouter);
 app.use("/cartype", cartypeRouter);
 app.use('/auth', authRouter);
+app.use("/review", reviewRouter);
 
 app.listen(port, () => {
     console.log(`Voiture App is running on port ${port}`);
