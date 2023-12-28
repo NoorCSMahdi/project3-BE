@@ -1,0 +1,15 @@
+{
+  "name": "project3-be",
+  "version": "1.0.0",
+  "description": "The app contains exhibitions and showcase their cars. It also allows the user to review the exhibitions and book a test drive for their desired car.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  }
+}
