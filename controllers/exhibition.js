@@ -24,9 +24,9 @@ exports.exhibition_create_post = (req, res) => {
 
   // Save Exhibition
   exhibition.save()
-  .then(() => {
+  .then((exhibition) => {
     // res.redirect("/exhibition/index");
-    res.json({ exhibition })
+    res.json({exhibition})
   })
   .catch((err) => {
     console.log(err);

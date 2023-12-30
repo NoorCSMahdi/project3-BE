@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const User = require("./User")
+const Car = require("./Car")
 
 const exhibitionSchema = mongoose.Schema({
   exhibition_name: String,
@@ -9,14 +11,14 @@ const exhibitionSchema = mongoose.Schema({
   exhibition_phoneNumber: Number,
   exhibition_emailAddress: String,
   working_days: [String], // Array to store the working days
-  user: [{
+  User: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }],
-  car: [{
+  Car: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Car'
-  }],
+  }]
 }, {
   timestamps: true // means createdAt and updatedAt
 });
