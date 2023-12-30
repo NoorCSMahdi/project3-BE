@@ -30,20 +30,20 @@ exports.auth_signup_post = (req, res) => {
 }
 
 exports.auth_signin_post = async (req, res) => {
-    let {emailAddress, password} = req.body;
-    console.log(emailAddress);
+    let {user_emailAddress, user_password} = req.body;
+    console.log(user_emailAddress);
 
     
     try{
-        let user = await User.findOne({emailAddress});
+        let user = await User.findOne({user_emailAddress});
         
         if(!user){
             return res.json({"message": "User not found!!"}).status(400);
         }
 
         //Password Comparison
-        const isMatched = await bcrypt.compareSync(password, user.password);
-        console.log(password);
+        const isMatched = await bcrypt.compareSync(user_password, user.password);
+        console.log(user_password);
         console.log(user.password);
 
         if(!isMatched){

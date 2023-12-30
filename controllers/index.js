@@ -1,3 +1,3 @@
 exports.index_get = (req, res) =>{
-    res.render("index");
+    res.render("home/index", {"message": "Welcome to Voiture App"})
 }
