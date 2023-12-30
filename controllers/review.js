@@ -1,6 +1,6 @@
 // API's/ Functions
 const {Review} = require("../models/Review")
-const {Exihibtion} = require("../models/Exihibtion")
+const {Exhibition} = require("../models/Exhibition")
 
 // Create Operation
 exports.review_create_get = (req, res) => {

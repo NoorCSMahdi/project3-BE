@@ -1,24 +1,24 @@
-<h1> Add an Exihibtion </h1>
+<h1> Add an Exhibition </h1>
 
-<form method="POST" action="/exihibtion/add">
+<form method="POST" action="/exhibition/add">
   <div>
-    <label>Exihibtion Name</label>
-    <input type="text" name="exihibtion_name" class="form-control"/>
+    <label>Exhibition Name</label>
+    <input type="text" name="exhibition_name" class="form-control"/>
   </div>
 
   <div>
-    <label>Exihibtion Description</label>
-    <textarea name="exihibtion_description" class="form-control"></textarea>
+    <label>Exhibition Description</label>
+    <textarea name="exhibition_description" class="form-control"></textarea>
   </div>
 
   <div>
-    <label>Exihibtion Image</label>
+    <label>Exhibition Image</label>
     <input class="form-control" onchange="validateSize(this)" type="file" name="item_img" id="item_img" accept=".png, .jpg, .jpeg, .gif">
   </div>
 
   <!-- <div>
-    <label>Exihibtion Rate</label>
-    <input name="exihibtion_rate" class="form-control"  type="file">
+    <label>Exhibition Rate</label>
+    <input name="exhibition_rate" class="form-control"  type="file">
   </div> -->
   <div>
     <label>Exhibition Location</label>
@@ -26,12 +26,12 @@
   </div>
 
   <div>
-    <label>Exihibtion Phone Number</label>
-    <input type="number" name="exihibtion_phoneNumber" class="form-control"/>
+    <label>Exhibition Phone Number</label>
+    <input type="number" name="exhibition_phoneNumber" class="form-control"/>
   </div>
   <div>
-    <label>Exihibtion Email Address</label>
-    <input type="email" name="exihibtion_emailAddress" class="form-control"/>
+    <label>Exhibition Email Address</label>
+    <input type="email" name="exhibition_emailAddress" class="form-control"/>
   </div>
 </div>
 
@@ -52,5 +52,5 @@
     </select> -->
   </div>
   <br>
-  <button type="submit" class="btn btn-primary">Create Exihibtion</button>
+  <button type="submit" class="btn btn-primary">Create Exhibition</button>
 </form>
