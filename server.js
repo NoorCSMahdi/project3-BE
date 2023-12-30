@@ -18,7 +18,7 @@ const db = require("./config/db");
 //Import Routes
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
-const exihibtionRouter = require("./routes/exihibtion");
+const exhibitionRouter = require("./routes/exhibition");
 const carRouter = require("./routes/car");
 const cartypeRouter = require("./routes/cartype");
 const authRouter = require("./routes/auth");
@@ -30,7 +30,7 @@ app.set("view engine", "ejs");
 
 //Mount Routes
 
-app.use("/exihibtion", exihibtionRouter);
+app.use("/exhibition", exhibitionRouter);
 app.use('/', indexRouter);
 app.use("/user", userRouter);
 app.use("/car", carRouter);

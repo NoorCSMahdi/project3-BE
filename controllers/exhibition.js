@@ -1,7 +1,7 @@
 // API's/ Functions
 
 // const {User} = require("../models/User")
-const {Exhibition} = require("../models/Exihibtion")
+const {Exhibition} = require("../models/Exhibition")
 
 // const dayjs = require('dayjs')
 // var relativeTime = require('dayjs/plugin/relativeTime')
@@ -14,19 +14,19 @@ const {Exhibition} = require("../models/Exihibtion")
 // HTTP DELETE/GET/POST - Delete - Deletes the data
 
 // Create Operation
-exports.exihibtion_create_get = (req, res) => {
-  res.render("exihibtion/add");
+exports.exhibition_create_get = (req, res) => {
+  res.render("exhibition/add");
 }
 
-exports.exihibtion_create_post = (req, res) => {
+exports.exhibition_create_post = (req, res) => {
   console.log(req.body);
-  let exihibtion = new Exhibition(req.body);
+  let exhibition = new Exhibition(req.body);
 
   // Save Exhibition
-  exihibtion.save()
+  exhibition.save()
   .then(() => {
-    // res.redirect("/exihibtion/index");
-    res.json({ exihibtion })
+    // res.redirect("/exhibition/index");
+    res.json({ exhibition })
   })
   .catch((err) => {
     console.log(err);
@@ -34,11 +34,11 @@ exports.exihibtion_create_post = (req, res) => {
   })
 }
 //Restful API
-exports.exihibtion_index_get = (req, res) => {
+exports.exhibition_index_get = (req, res) => {
   Exhibition.find()
-  .then((exihibtions) => {
-    // res.render("exihibtion/index", {exihibtions, dayjs});
-    res.json({ exihibtions })
+  .then((exhibitions) => {
+    // res.render("exhibition/index", {exhibitions, dayjs});
+    res.json({ exhibitions })
   })
   .catch((err) => {
     console.log(err);
@@ -46,46 +46,46 @@ exports.exihibtion_index_get = (req, res) => {
 
 }
 
-exports.exihibtion_show_get = (req, res) => {
+exports.exhibition_show_get = (req, res) => {
   console.log(req.query.id);
   Exhibition.findById(req.query.id).populate('user')
-  .then((exihibtion) => {
-    res.render("exihibtion/detail", {exihibtion})
+  .then((exhibition) => {
+    res.render("exhibition/detail", {exhibition})
   })
   .catch((err) => {
     console.log(err);
   })
 }
 
-exports.exihibtion_delete_get = (req, res) => {
+exports.exhibition_delete_get = (req, res) => {
   console.log(req.query.id);
   Exhibition.findByIdAndDelete(req.query.id)
-  .then((exihibtion) => {
-    // res.redirect("/exihibtion/index");
-    res.json({exihibtion})
+  .then((exhibition) => {
+    // res.redirect("/exhibition/index");
+    res.json({exhibition})
   })
   .catch((err) => {
     console.log(err);
   })
 }
 
-exports.exihibtion_edit_get = (req, res) => {
+exports.exhibition_edit_get = (req, res) => {
   Exhibition.findById(req.query.id)
-  .then((exihibtion) => {
-    // res.render("exihibtion/edit", {exihibtion});
-    res.json({exihibtion})
+  .then((exhibition) => {
+    // res.render("exhibition/edit", {exhibition});
+    res.json({exhibition})
   })
   .catch(err => {
     console.log(err);
   })
 }
 
-exports.exihibtion_update_put = (req, res) => {
+exports.exhibition_update_put = (req, res) => {
   console.log(req.body._id);
   Exhibition.findByIdAndUpdate(req.body._id, req.body, {new:true})
-  .then((exihibtion) => {
-    // res.redirect("/exihibtion/index");
-    res.json({exihibtion})
+  .then((exhibition) => {
+    // res.redirect("/exhibition/index");
+    res.json({exhibition})
   })
   .catch(err => {
     console.log(err);
