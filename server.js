@@ -15,6 +15,8 @@ const port = process.env.PORT;
 //database configuration
 const db = require("./config/db");
 
+app.use(express.static('public'))
+
 //Import Routes
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");

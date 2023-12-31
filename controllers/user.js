@@ -1,6 +1,5 @@
 // API's/ Functions
-const {User} = require("../models/User")
-const {UserType} = require("../models/UserType")
+const User = require("../models/User")
 
 // Create Operation
 exports.user_create_get = (req, res) => {
@@ -70,6 +69,11 @@ exports.user_edit_get = (req, res) => {
 }
 //RESTFUL API
 exports.user_update_put = (req, res) => {
+  if (req.file) {
+    console.log(req.file);
+    req.body.images = "/uploads/" + req.file.filename
+    }
+    
   console.log(req.body._id);
   User.findByIdAndUpdate(req.body._id, req.body, {new: true})
   .then((user) => {

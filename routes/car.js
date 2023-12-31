@@ -9,9 +9,21 @@ router.use(methodOverride('_method'));
 const carCntrl = require("../controllers/car")
 const isLoggedIn = require("../helper/isLoggedIn")
 
+// Multer
+const multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
+    }
+})
+let upload = multer({ storage: storage })
+
 // Routes
 router.get("/add", carCntrl.car_create_get);
-router.post("/add", isLoggedIn, carCntrl.car_create_post);
+router.post("/add", isLoggedIn, upload.single('images'), carCntrl.car_create_post);
 router.get("/index", carCntrl.car_index_get);
 router.get("/detail", carCntrl.car_show_get);
 router.get("/delete", isLoggedIn, carCntrl.car_delete_get);

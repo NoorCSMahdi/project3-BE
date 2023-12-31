@@ -42,9 +42,9 @@ exports.auth_signin_post = async (req, res) => {
         }
 
         //Password Comparison
-        const isMatched = await bcrypt.compareSync(user_password, user.password);
+        const isMatched = await bcrypt.compareSync(user_password, user.user_password);
         console.log(user_password);
-        console.log(user.password);
+        console.log(user.user_password);
 
         if(!isMatched){
             return res.json({"message": "Password Not Matched"}).status(400);
