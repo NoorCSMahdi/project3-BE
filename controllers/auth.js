@@ -13,11 +13,11 @@ exports.auth_signup_post = (req, res) => {
     let user = new User(req.body)
 
     //Declaring the Hash method for the password
-    let hash = bcrypt.hashSync(req.body.password, salt);
+    let hash = bcrypt.hashSync(req.body.user_password, salt);
     console.log(hash);
 
     //Making the password Hash before saving the User Information
-    user.password = hash;
+    user.user_password = hash;
 
     user.save()
     .then(()=>{
@@ -42,9 +42,9 @@ exports.auth_signin_post = async (req, res) => {
         }
 
         //Password Comparison
-        const isMatched = await bcrypt.compareSync(user_password, user.password);
+        const isMatched = await bcrypt.compareSync(user_password, user.user_password);
         console.log(user_password);
-        console.log(user.password);
+        console.log(user.user_password);
 
         if(!isMatched){
             return res.json({"message": "Password Not Matched"}).status(400);

@@ -1,5 +1,5 @@
 // API's/ Functions
-const {User} = require("../models/User")
+const User = require("../models/User")
 const {UserType} = require("../models/UserType")
 
 // Create Operation
