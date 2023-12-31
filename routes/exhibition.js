@@ -14,7 +14,7 @@ router.get("/add", exhibitionCntrl.exhibition_create_get);
 router.post("/add", exhibitionCntrl.exhibition_create_post);
 router.get("/index", exhibitionCntrl.exhibition_index_get);
 router.get("/detail", exhibitionCntrl.exhibition_show_get);
-router.get("/delete", exhibitionCntrl.exhibition_delete_get);
+router.delete("/delete", exhibitionCntrl.exhibition_delete_get);
 router.get("/edit", exhibitionCntrl.exhibition_edit_get);
 router.put("/update", exhibitionCntrl.exhibition_update_put);
 
