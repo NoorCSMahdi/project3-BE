@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const User = require("./User")
-const Car = require("./Car")
 
 const exhibitionSchema = mongoose.Schema({
   exhibition_name: String,

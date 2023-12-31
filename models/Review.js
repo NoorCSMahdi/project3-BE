@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-const User = require("./User")
-const Exhibition = require("./Exhibition")
 
 const reviewSchema = mongoose.Schema({
     review_title: String,
