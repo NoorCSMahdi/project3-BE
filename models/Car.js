@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Cartype = require("./Cartype")
 
 // Car Schema
 const carSchema = mongoose.Schema({
@@ -8,10 +9,10 @@ const carSchema = mongoose.Schema({
   car_price: Number,
   car_description: String,
   car_avatar: String,
-  Cartype: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Cartype'
-  }]
+  Cartype: {
+    type: String,
+    enum: ["City car", "Convertible", "Coupe", "Crossover", "CUV", "Electric vehicle", "Estate", "Hatchback", "Hybrid", "Luxury car", "Minivan", "MPV", "Pickup", "Sedan", "Sports car", "Supercar", "Utility vehicle", "Wagons"]
+  }
 })
 
 // Car Model
