@@ -73,7 +73,7 @@ exports.user_update_put = (req, res) => {
     console.log(req.file);
     req.body.images = "/uploads/" + req.file.filename
     }
-    
+
   console.log(req.body._id);
   User.findByIdAndUpdate(req.body._id, req.body, {new: true})
   .then((user) => {

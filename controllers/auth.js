@@ -13,11 +13,11 @@ exports.auth_signup_post = (req, res) => {
     let user = new User(req.body)
 
     //Declaring the Hash method for the password
-    let hash = bcrypt.hashSync(req.body.password, salt);
+    let hash = bcrypt.hashSync(req.body.user_password, salt);
     console.log(hash);
 
     //Making the password Hash before saving the User Information
-    user.password = hash;
+    user.user_password = hash;
 
     user.save()
     .then(()=>{
