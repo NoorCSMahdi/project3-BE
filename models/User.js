@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const UserType = require("./UserType")
 
 const userSchema = mongoose.Schema({
   user_fullName: {
