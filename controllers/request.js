@@ -23,6 +23,7 @@ exports.request_create_post = (req, res) => {
   console.log(req.body);
   let request = new Request(req.body);
 
+
   // Save Request
   request.save()
   .then(() => {
@@ -36,7 +37,7 @@ exports.request_create_post = (req, res) => {
 
 //Restful API because of the JSON format line 41
 exports.request_index_get = (req, res) => {
-  Request.find()
+  Request.find().populate('User')
   .then((requests) => {
     // res.render("request/index", {requests, dayjs});
     res.json({requests});
@@ -49,7 +50,7 @@ exports.request_index_get = (req, res) => {
 
 exports.request_show_get = (req, res) => {
   console.log(req.query.id);
-  Request.findById(req.query.id).populate('user')
+  Request.findById(req.query.id).populate('User')
   .then((request) => {
     res.render("request/detail", {request, dayjs})
   })
