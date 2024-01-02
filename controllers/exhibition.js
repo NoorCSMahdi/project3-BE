@@ -1,7 +1,11 @@
 // API's/ Functions
 
 // const {User} = require("../models/User")
+<<<<<<< HEAD
+const { Car } = require("../models/Car");
+=======
 const { json } = require("express");
+>>>>>>> b8733f993ba1486e6cafb2870d39165837dc13e1
 const {Exhibition} = require("../models/Exhibition")
 
 // const dayjs = require('dayjs')
@@ -71,8 +75,13 @@ exports.exhibition_delete_get = (req, res) => {
   console.log(req.query.id);
   Exhibition.findByIdAndDelete(req.query.id)
   .then((exhibition) => {
+    Car.deleteMany({Exhibition: req.query.id})
+    .then(()=>
+    {
+      res.json({exhibition})
+
+    })
     // res.redirect("/exhibition/index");
-    res.json({exhibition})
   })
   .catch((err) => {
     console.log(err);
