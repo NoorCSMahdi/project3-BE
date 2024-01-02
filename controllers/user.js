@@ -7,6 +7,10 @@ exports.user_create_get = (req, res) => {
 }
 //RESTFUL API
 exports.user_create_post = (req, res) => {
+  if (req.file) {
+    console.log(req.file);
+    req.body.images = "/uploads/" + req.file.filename
+    }
   console.log(req.body);
   let user = new User(req.body);
 
@@ -69,11 +73,6 @@ exports.user_edit_get = (req, res) => {
 }
 //RESTFUL API
 exports.user_update_put = (req, res) => {
-  if (req.file) {
-    console.log(req.file);
-    req.body.images = "/uploads/" + req.file.filename
-    }
-
   console.log(req.body._id);
   User.findByIdAndUpdate(req.body._id, req.body, {new: true})
   .then((user) => {
