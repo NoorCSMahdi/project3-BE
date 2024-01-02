@@ -23,7 +23,7 @@ let upload = multer({ storage: storage })
 
 // Routes
 router.get("/add", carCntrl.car_create_get);
-router.post("/add", isLoggedIn, upload.single('images'), carCntrl.car_create_post);
+router.post("/add", isLoggedIn, upload.single('car_avatar'), carCntrl.car_create_post);
 router.get("/index", carCntrl.car_index_get);
 router.get("/detail", carCntrl.car_show_get);
 router.get("/delete", isLoggedIn, carCntrl.car_delete_get);
