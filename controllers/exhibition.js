@@ -1,7 +1,11 @@
 // API's/ Functions
 
 // const {User} = require("../models/User")
+<<<<<<< HEAD
 const { Car } = require("../models/Car");
+=======
+const { json } = require("express");
+>>>>>>> b8733f993ba1486e6cafb2870d39165837dc13e1
 const {Exhibition} = require("../models/Exhibition")
 
 // const dayjs = require('dayjs')
@@ -10,7 +14,7 @@ const {Exhibition} = require("../models/Exhibition")
 
 // CRUD Operations
 // HTTP POST - Create - Post the data
-// HTTP GET - Read - Retrives the data
+// HTTP GET - Read - Retrieves the data
 // HTTP PUT/POST - Update - Updates the data
 // HTTP DELETE/GET/POST - Delete - Deletes the data
 
@@ -20,9 +24,18 @@ exports.exhibition_create_get = (req, res) => {
 }
 
 exports.exhibition_create_post = (req, res) => {
-  console.log(req.body);
+  console.log("req.body", req.body);
+  // const data = JSON.parse(req.body);
+  // console.log("data", data)
+  console.log("req.body", req.body.exhibition_name);
+  console.log("req.file", req.file);
   let exhibition = new Exhibition(req.body);
-
+  // Handle file upload using multer
+  if (req.file) {
+    // Save the file path to the database
+    exhibition.exhibition_image = "/uploads/" + req.file.filename;
+    console.log("Image path", "/uploads/" + req.file.filename)
+}
   // Save Exhibition
   exhibition.save()
   .then((exhibition) => {
