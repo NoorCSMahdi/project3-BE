@@ -12,7 +12,14 @@ const carSchema = mongoose.Schema({
   Cartype: {
     type: String,
     enum: ["City car", "Convertible", "Coupe", "Crossover", "CUV", "Electric vehicle", "Estate", "Hatchback", "Hybrid", "Luxury car", "Minivan", "MPV", "Pickup", "Sedan", "Sports car", "Supercar", "Utility vehicle", "Wagons"]
+  },
+  Exhibition: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Exhibition'
   }
+}, {
+  timestamps: true // means createdAt and updatedAt
+
 })
 
 // Car Model

@@ -35,7 +35,7 @@ exports.exhibition_create_post = (req, res) => {
 }
 //Restful API
 exports.exhibition_index_get = (req, res) => {
-  Exhibition.find()
+  Exhibition.find().populate('Car')
   .then((exhibitions) => {
     // res.render("exhibition/index", {exhibitions, dayjs});
     res.json({ exhibitions })
@@ -48,9 +48,9 @@ exports.exhibition_index_get = (req, res) => {
 
 exports.exhibition_show_get = (req, res) => {
   console.log(req.query.id);
-  Exhibition.findById(req.query.id).populate('user')
+  Exhibition.findById(req.query.id).populate('Car')
   .then((exhibition) => {
-    res.render("exhibition/detail", {exhibition})
+    res.json({exhibition})
   })
   .catch((err) => {
     console.log(err);
@@ -70,7 +70,7 @@ exports.exhibition_delete_get = (req, res) => {
 }
 
 exports.exhibition_edit_get = (req, res) => {
-  Exhibition.findById(req.query.id)
+  Exhibition.findById(req.query.id).populate('Car')
   .then((exhibition) => {
     // res.render("exhibition/edit", {exhibition});
     res.json({exhibition})
@@ -82,7 +82,7 @@ exports.exhibition_edit_get = (req, res) => {
 
 exports.exhibition_update_put = (req, res) => {
   console.log(req.body._id);
-  Exhibition.findByIdAndUpdate(req.body._id, req.body, {new:true})
+  Exhibition.findByIdAndUpdate(req.body._id, req.body, {new:true}).populate('Car')
   .then((exhibition) => {
     // res.redirect("/exhibition/index");
     res.json({exhibition})
