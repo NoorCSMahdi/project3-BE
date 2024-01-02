@@ -30,7 +30,7 @@ exports.exhibition_create_post = (req, res) => {
   // Handle file upload using multer
   if (req.file) {
     // Save the file path to the database
-    exhibition.exhibition_image = "/uploads/" + req.file.filename;
+    exhibition.exhibition_image = req.file.path;
     console.log("Image path", "/uploads/" + req.file.filename)
 }
   // Save Exhibition
