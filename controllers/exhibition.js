@@ -1,11 +1,8 @@
 // API's/ Functions
 
 // const {User} = require("../models/User")
-<<<<<<< HEAD
 const { Car } = require("../models/Car");
-=======
 const { json } = require("express");
->>>>>>> b8733f993ba1486e6cafb2870d39165837dc13e1
 const {Exhibition} = require("../models/Exhibition")
 
 // const dayjs = require('dayjs')

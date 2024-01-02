@@ -4,7 +4,7 @@
 const User = require('../models/User')
 
 //Load Dependencies
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const salt = 10;
 const jwt = require('jsonwebtoken');
 
