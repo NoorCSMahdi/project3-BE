@@ -1,7 +1,7 @@
 // API's/ Functions
 const {Car} = require("../models/Car")
 const {Cartype} = require("../models/Cartype")
-
+const { Exhibition } = require('../models/Exhibition')
 // CRUD Operations
 // HTTP POST - Create - Post the data
 // HTTP GET - Read - Retrives the data
@@ -26,8 +26,12 @@ exports.car_create_get = (req, res) => {
   
     // Save Car
     car.save()
-    .then(() => {
-      res.json({car});
+    .then((car) => {
+      return Exhibition.findByIdAndUpdate(req.body.Exhibition, { $push: { Car: car } }, { new: true });
+    })
+    .then((updatedExhibition) => {
+      console.log(updatedExhibition);
+      res.json({ exhibition: updatedExhibition });
     })
     .catch((err) => {
       console.log(err);

@@ -61,6 +61,7 @@ exports.exhibition_show_get = (req, res) => {
   console.log(req.query.id);
   Exhibition.findById(req.query.id).populate('Car')
   .then((exhibition) => {
+    console.log(exhibition);
     res.json({exhibition})
   })
   .catch((err) => {
