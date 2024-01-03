@@ -7,12 +7,13 @@ exports.user_create_get = (req, res) => {
 }
 //RESTFUL API
 exports.user_create_post = (req, res) => {
+  let user = new User(req.body);
+
   if (req.file) {
     console.log(req.file);
-    req.body.images = "/uploads/" + req.file.filename
+    user.user_image = req.file.path;
     }
   console.log(req.body);
-  let user = new User(req.body);
 
   // Save User
   user.save()
