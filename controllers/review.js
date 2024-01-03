@@ -24,7 +24,7 @@ exports.review_create_post = (req, res) => {
 }
 //RESTFUL API
 exports.review_index_get = (req, res) => {
-  Review.find()
+  Review.find().populate('User')
   .then((reviews) => {
     // res.render("review/index", {reviews});
     res.json({reviews})
@@ -37,7 +37,7 @@ exports.review_index_get = (req, res) => {
 
 exports.review_show_get = (req, res) => {
   console.log(req.query.id);
-  Review.findById(req.query.id).populate('')
+  Review.findById(req.query.id).populate('User')
   .then((review) => {
     res.render("review/detail", {review})
   })
