@@ -20,7 +20,10 @@ var storage = multer.diskStorage({
       cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
     }
 })
-let upload = multer({ storage: storage })
+// let upload = multer({ storage: storage })
+
+const exhibitionCntrl = require("../controllers/exhibition")
+const upload = require('../config/cloudinary');
 
 // Routes
 router.get("/add", carCntrl.car_create_get);
