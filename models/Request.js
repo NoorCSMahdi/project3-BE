@@ -5,10 +5,10 @@ const requestSchema = mongoose.Schema({
   request_exhibitionName: String,
   request_message: String,
   request_CR: String,
-  User: [{
+  User: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }]
+  }
 }, {
   timestamps: true
 })
