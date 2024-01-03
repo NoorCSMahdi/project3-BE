@@ -43,7 +43,8 @@ exports.user_show_get = (req, res) => {
   console.log(req.query.id);
   User.findById(req.query.id).populate('')
   .then((user) => {
-    res.render("user/detail", {user})
+    // res.render("user/detail", {user})
+    res.json({user});
   })
   .catch((err) => {
     console.log(err);
