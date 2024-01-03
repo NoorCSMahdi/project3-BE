@@ -5,7 +5,8 @@ const exhibitionSchema = mongoose.Schema({
   exhibition_description: String,
   exhibition_image: String,
   exhibition_rate: Number,
-  exhibition_location: String,
+  exhibition_latitude: String,
+  exhibition_longtude: String,
   exhibition_phoneNumber: Number,
   exhibition_emailAddress: String,
   working_days: [String], // Array to store the working days

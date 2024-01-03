@@ -11,6 +11,7 @@ const isLoggedIn = require("../helper/isLoggedIn")
 
 // Multer
 const multer = require('multer');
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/uploads/')
