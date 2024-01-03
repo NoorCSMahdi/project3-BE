@@ -15,14 +15,14 @@ exports.car_create_get = (req, res) => {
   
   //Restful API converting to json in line 29
   exports.car_create_post = (req, res) => {
-    if (req.file) {
-      console.log(req.file);
-  
-      req.body.images = "/uploads/" + req.file.filename
-      }
-      
     console.log(req.body);
     let car = new Car(req.body);
+
+    if (req.file) {
+      // Save the file path to the database
+      exhibition.exhibition_image = req.file.path;
+      console.log("Image path", "/uploads/" + req.file.filename)
+  }
   
     // Save Car
     car.save()
