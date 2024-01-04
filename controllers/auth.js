@@ -11,7 +11,11 @@ const jwt = require('jsonwebtoken');
 // Signing up Using Post (New User)
 exports.auth_signup_post = (req, res) => {
     let user = new User(req.body)
-
+    if (req.file) {
+        // Save the file path to the database
+        user.user_image = req.file.path;
+        console.log("Image path", "/uploads/" + req.file.filename)
+    }
     //Declaring the Hash method for the password
     let hash = bcrypt.hashSync(req.body.user_password, salt);
     console.log(hash);

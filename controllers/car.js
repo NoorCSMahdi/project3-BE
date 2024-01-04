@@ -20,7 +20,7 @@ exports.car_create_get = (req, res) => {
 
     if (req.file) {
       // Save the file path to the database
-      exhibition.exhibition_image = req.file.path;
+      car.car_avatar = req.file.path;
       console.log("Image path", "/uploads/" + req.file.filename)
   }
   
