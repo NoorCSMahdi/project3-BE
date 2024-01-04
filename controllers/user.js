@@ -1,5 +1,6 @@
 // API's/ Functions
 const User = require("../models/User")
+const { json } = require("express");
 
 // Create Operation
 exports.user_create_get = (req, res) => {
@@ -9,11 +10,12 @@ exports.user_create_get = (req, res) => {
 exports.user_create_post = (req, res) => {
   let user = new User(req.body);
 
+  // Handle file upload using multer
   if (req.file) {
-    console.log(req.file);
+    // Save the file path to the database
     user.user_image = req.file.path;
-    }
-  console.log(req.body);
+    console.log("Image path", "/uploads/" + req.file.filename)
+}
 
   // Save User
   user.save()
@@ -40,9 +42,10 @@ exports.user_index_get = (req, res) => {
 }
 
 exports.user_show_get = (req, res) => {
-  console.log(req.query.id);
-  User.findById(req.query.id).populate('')
+  console.log("id:",req.query.id);
+  User.findById(req.query.id)
   .then((user) => {
+    console.log(user);
     // res.render("user/detail", {user})
     res.json({user});
   })
