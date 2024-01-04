@@ -5,8 +5,6 @@ const router = express.Router();
 router.use(express.json());
 // router.use(methodOverride('_method'));
 
-const userCntrl = require("../controllers/user")
-
 // Multer
 const multer = require('multer');
 var storage = multer.diskStorage({
@@ -16,9 +14,10 @@ var storage = multer.diskStorage({
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
     }
-})
+  })
 // let upload = multer({ storage: storage })
 
+const userCntrl = require("../controllers/user")
 const upload = require('../config/cloudinary');
 
 // Routes

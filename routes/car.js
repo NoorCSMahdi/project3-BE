@@ -22,7 +22,6 @@ var storage = multer.diskStorage({
 })
 // let upload = multer({ storage: storage })
 
-const exhibitionCntrl = require("../controllers/exhibition")
 const upload = require('../config/cloudinary');
 
 // Routes
