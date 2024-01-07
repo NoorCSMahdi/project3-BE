@@ -27,6 +27,6 @@ router.get("/index", userCntrl.user_index_get);
 router.get("/detail", userCntrl.user_show_get);
 router.delete("/delete", userCntrl.user_delete_get);
 router.get("/edit", userCntrl.user_edit_get);
-router.put("/update", userCntrl.user_update_put);
+router.put("/update", upload.single('user_image'), userCntrl.user_update_put);
 
 module.exports = router;
