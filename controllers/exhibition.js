@@ -99,6 +99,12 @@ exports.exhibition_edit_get = (req, res) => {
 
 exports.exhibition_update_put = (req, res) => {
   console.log(req.body._id);
+  console.log(req.body);
+  let data = req.body;
+  if(req.file)
+  data.exhibition_image = req.file.path;
+  else
+  data.exhibition_image = data.exhibition_image
   Exhibition.findByIdAndUpdate(req.body._id, req.body, {new:true}).populate('Car')
   .then((exhibition) => {
     // res.redirect("/exhibition/index");

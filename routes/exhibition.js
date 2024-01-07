@@ -29,6 +29,6 @@ router.get("/index", exhibitionCntrl.exhibition_index_get);
 router.get("/detail", exhibitionCntrl.exhibition_show_get);
 router.delete("/delete", exhibitionCntrl.exhibition_delete_get);
 router.get("/edit", exhibitionCntrl.exhibition_edit_get);
-router.put("/update", exhibitionCntrl.exhibition_update_put);
+router.put("/update",upload.single('exhibition_image'), exhibitionCntrl.exhibition_update_put);
 
 module.exports = router;
